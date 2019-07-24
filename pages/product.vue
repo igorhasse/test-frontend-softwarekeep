@@ -5,7 +5,7 @@
                 {{ product.tabname }}
             </a>
         </section>
-        <div class="product" v-for="product in products" :key="product.id" v-show="currentTab == product.id">
+        <div class="product" v-for="product in products" :key="product.id" v-show="currentTab == product.id" itemscope itemtype="http://schema.org/Product">
             <div class="background"></div>
             <section class="cat-tabs">
                 <a v-on:click="changeTab(product)" class="cat-tab" v-for="(categorie, index) in categories" :key="categorie.name" :class="{'active': index === 0 }">
@@ -15,7 +15,7 @@
             <div class="rows">
                 <div class="row-left">
                     <div class="name-box">
-                        <h2>{{product.name}}</h2>
+                        <h2 itemprop="name">{{product.name}}</h2>
                     </div>
                     <div class="includes">
                         <h4>Software Includes:</h4>
@@ -24,9 +24,9 @@
                         <img class="thumbnail" src="~/assets/include-power.png" alt="Microsoft Power Point">
                     </div>  
                     <div class="price-box">
-                        <div class="price">
-                            <span class="currency">$</span>
-                            <span class="value">258</span>
+                        <div class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span class="currency" itemprop="priceCurrency" content="USD">$</span>
+                            <span class="value" itemprop="price">258</span>
                             <span class="decimal">98</span>
                         </div>
                         <span class="old-price">$258.98</span>
@@ -36,11 +36,11 @@
                     </div>
                 </div>
                 <div class="row-right">
-                    <img class="image-product" src="../assets/product-image.png" alt= {{ product.name }}/>
+                    <img class="image-product" src="../assets/product-image.png" alt= {{ product.name }} itemprop="image"/>
                 </div>
             </div>
             <div class="product-description">
-                <p>
+                <p itemprop="description">
                     Microsoft Office has been the standard for office software for decades. Its core programs, Word, Excel, and Pc businesses around the world. With over 1.2 billion users worldwide, Microsoft Office is the most popular office there's enhancements and new features to make it even better than before.
                     Microsoft Office has been the standard for office software for decades. Its core programs, Word, Excel, and Pc businesses around the world. With over 1.2 billion users worldwide,
                 </p>
